@@ -13,7 +13,7 @@ public class Lista<T> implements Collection<T> {
         public Nodo anterior;
         public Nodo siguiente;
 
-        public Nodo(T elemento){
+        public Nodo(T elemento) {
             this.elemento = elemento;
         }
     }
@@ -21,32 +21,34 @@ public class Lista<T> implements Collection<T> {
     // Iterador
     private class Iterador implements IteradorLista<T> {
         public Nodo anterior;
-        public Nodo siguiente; 
+        public Nodo siguiente;
 
-        public Iterador(){
+        public Iterador() {
             siguiente = cabeza;
         }
 
-        @Override public boolean hasNext(){
+        @Override
+        public boolean hasNext() {
             return siguiente != null;
         }
 
-        @Override public T next(){
-            if(!hasNext())
+        @Override
+        public T next() {
+            if (!hasNext())
                 throw new NoSuchElementException();
             T regresar = siguiente.elemento;
-            
-            this.anterior = this.siguiente ;
-            this.siguiente=siguiente.siguiente;
+
+            this.anterior = this.siguiente;
+            this.siguiente = siguiente.siguiente;
             return regresar;
 
         }
-        
+
         @Override
         public boolean hasPrevious() {
             return anterior != null;
         }
-        
+
         @Override
         public T previous() {
             if (!hasPrevious())
@@ -60,23 +62,23 @@ public class Lista<T> implements Collection<T> {
         }
 
         @Override
-        public void start(){
+        public void start() {
             this.anterior = null;
             this.siguiente = cabeza;
         }
-        
+
         @Override
         public void end() {
             this.anterior = ultimo;
             this.siguiente = null;
         }
-        
+
     }
 
     private Nodo cabeza;
     private Nodo ultimo;
     private int longi;
-    
+
     /**
      * Agrega un elemento a la lista.
      * 
@@ -85,20 +87,20 @@ public class Lista<T> implements Collection<T> {
      *                                  <code>null</code>.
      */
     @Override
-    public void add(T elemento){
-        if(elemento == null){
+    public void add(T elemento) {
+        if (elemento == null) {
             throw new IllegalArgumentException("El elemento es null");
         }
         agregaFinal(elemento);
     }
-    
-    
+
     /**
      * Agrega un elemento al inicio de la lista. Si la lista no tiene elementos,
      * el elemento a agregar será el primero y último.
+     * 
      * @param elemento el elemento a agregar.
      * @throws IllegalArgumentException si <code>elemento</code> es
-     *         <code>null</code>.
+     *                                  <code>null</code>.
      */
     public void agregaInicio(T elemento) {
         if (elemento == null) {
@@ -118,19 +120,19 @@ public class Lista<T> implements Collection<T> {
     /**
      * Agrega un elemento al final de la lista. Si la lista no tiene elementos,
      * el elemento a agregar será el primero y último.
+     * 
      * @param elemento el elemento a agregar.
      * @throws IllegalArgumentException si <code>elemento</code> es
-     *         <code>null</code>.
+     *                                  <code>null</code>.
      */
     public void agregaFinal(T elemento) {
         if (elemento == null) {
             throw new IllegalArgumentException("El elemento es null");
         }
         Nodo nuevo = new Nodo(elemento);
-        if(cabeza == null){
+        if (cabeza == null) {
             this.cabeza = this.ultimo = nuevo;
-        }
-        else{
+        } else {
             this.ultimo.siguiente = nuevo;
             nuevo.anterior = this.ultimo;
             this.ultimo = nuevo;
@@ -138,13 +140,13 @@ public class Lista<T> implements Collection<T> {
         longi++;
     }
 
-    private Nodo buscaElemento(T elemento){
+    private Nodo buscaElemento(T elemento) {
         Nodo n = cabeza;
-        while(n !=null){
+        while (n != null) {
             if (elemento.equals(n.elemento)) {
                 return n;
             }
-            n=n.siguiente;
+            n = n.siguiente;
         }
         return null;
     }
@@ -153,37 +155,35 @@ public class Lista<T> implements Collection<T> {
      * Elimina un elemento de la lista.
      * 
      * @param elemento el elemento a eliminar.
-     */ 
-    public boolean delete(T elemento){
-        if(elemento == null)
+     */
+    public boolean delete(T elemento) {
+        if (elemento == null)
             return false;
         Nodo n = buscaElemento(elemento);
-        if(n==null){
+        if (n == null) {
             return false;
         }
-        if(longi == 1){
+        if (longi == 1) {
             empty();
             return true;
         }
         if (n == cabeza) {
             cabeza = cabeza.siguiente;
             cabeza.anterior = null;
-            longi --;
+            longi--;
             return true;
         }
         if (n == ultimo) {
             ultimo = ultimo.anterior;
             ultimo.siguiente = null;
-            longi --;
+            longi--;
             return true;
         }
         n.siguiente.anterior = n.anterior;
         n.anterior.siguiente = n.siguiente;
-        longi --;
+        longi--;
         return true;
-    }    
-
-
+    }
 
     /**
      * Regresa un elemento de la lista. (Ultimo)
@@ -191,11 +191,11 @@ public class Lista<T> implements Collection<T> {
      * 
      * @return El elemento a sacar.
      */
-    public T pop(){
+    public T pop() {
         T valor = ultimo.elemento;
         ultimo = ultimo.anterior;
         ultimo.siguiente = null;
-        longi --;
+        longi--;
         return valor;
     }
 
@@ -204,7 +204,7 @@ public class Lista<T> implements Collection<T> {
      * 
      * @return el número de elementos en la lista.
      */
-    public int size(){
+    public int size() {
         return longi;
     }
 
@@ -216,8 +216,8 @@ public class Lista<T> implements Collection<T> {
      * @return <code>true</code> si el elemento está contenido en la lista,
      *         <code>false</code> en otro caso.
      */
-    public boolean contains(T elemento){
-        if(buscaElemento(elemento) == null){
+    public boolean contains(T elemento) {
+        if (buscaElemento(elemento) == null) {
             return false;
         }
         return true;
@@ -227,8 +227,8 @@ public class Lista<T> implements Collection<T> {
      * Vacía la lista.
      * 
      */
-    public void empty(){
-        cabeza =ultimo= null;
+    public void empty() {
+        cabeza = ultimo = null;
         longi = 0;
     }
 
@@ -238,11 +238,9 @@ public class Lista<T> implements Collection<T> {
      * @return <code>true</code> si la lista es vacía, <code>false</code> en
      *         otro caso.
      */
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return longi == 0;
     }
-
-    
 
     /**
      * Regresa una copia de la lista.
@@ -266,16 +264,14 @@ public class Lista<T> implements Collection<T> {
      * @return <tt>true</tt> si la coleccion es igual a la coleccion recibido
      *         <tt>false</tt> en otro caso.
      */
-    public boolean equals(Collection<T> coleccion){
+    public boolean equals(Collection<T> coleccion) {
         // lo vemos en clase
-        if(coleccion instanceof Lista) {
+        if (coleccion instanceof Lista) {
             return true;
         }
         return false;
     }
 
-
-    
     /**
      * Metodo que invierte el orden de la lista .
      * 
@@ -286,26 +282,31 @@ public class Lista<T> implements Collection<T> {
         cabeza = aux;
         ultimo.siguiente = aux.siguiente;
         ultimo = aux;
-        return ;
+        return;
     }
 
     /**
      * Regresa una representación en cadena de la coleccion.
      * 
      * @return una representación en cadena de la coleccion.
-     * a -> b -> c -> d
+     *         a -> b -> c -> d
      */
-    public String toString(){
+    public String toString() {
         String elements = "";
         Iterador iterador = new Iterador();
         int i = 0;
-        elements += iterador.siguiente.elemento.toString();
-        while(i<this.longi){
-            if(iterador.hasNext()){
-                elements += iterador.next();
+        if (this.longi == 0) {
+            return "";
+        } else {
+            while (i < this.longi) {
+                if (iterador.hasNext()) {
+                    elements += iterador.next() + " -> ";
+                }
+                i++;
             }
+            elements = elements.substring(0, elements.length() - 4);
+            return elements;
         }
-        return elements;
     }
 
     /**
@@ -314,7 +315,7 @@ public class Lista<T> implements Collection<T> {
      */
     public void append(Lista<T> lista) {
         // Tu codigo aqui
-        return ;
+        return;
     }
 
     /**
@@ -325,14 +326,14 @@ public class Lista<T> implements Collection<T> {
      * @param elemento elemento del cual queremos conocer la posición.
      * @return entero con la posicion del elemento
      * @throws IllegalArgumentException si <code>elemento</code> es
-     *         <code>null</code>.
+     *                                  <code>null</code>.
      */
     public int indexOf(T elemento) {
         // Tu codigo aqui
         return 0;
 
     }
-    
+
     /**
      * Inserta un elemento en un índice explícito.
      *
@@ -352,16 +353,17 @@ public class Lista<T> implements Collection<T> {
      */
     public void insert(int i, T elemento) {
         // Tu codigo aqui
-        return ;
+        return;
     }
 
     // Tu comentario
-    public void mezclaAlternada(Lista<T> lista){
+    public void mezclaAlternada(Lista<T> lista) {
         return;
     }
 
     /**
      * Regresa un iterador para recorrer la lista en una dirección.
+     * 
      * @return un iterador para recorrer la lista en una dirección.
      */
     public Iterator<T> iterator() {
@@ -370,6 +372,7 @@ public class Lista<T> implements Collection<T> {
 
     /**
      * Regresa un iterador para recorrer la lista en ambas direcciones.
+     * 
      * @return un iterador para recorrer la lista en ambas direcciones.
      */
     public IteradorLista<T> iteradorLista() {
