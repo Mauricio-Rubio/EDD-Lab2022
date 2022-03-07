@@ -75,7 +75,7 @@ public class Lista<T> implements Collection<T> {
 
     private Nodo cabeza;
     private Nodo ultimo;
-    private int longi;
+    public int longi;
     
     /**
      * Agrega un elemento a la lista.

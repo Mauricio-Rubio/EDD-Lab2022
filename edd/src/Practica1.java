@@ -1,6 +1,7 @@
 package Clases;
 
 import java.util.Iterator;
+import java.util.Scanner;
 
 public class Practica1 {
     
@@ -189,6 +190,16 @@ public class Practica1 {
             System.out.println("1 La intersección no funciona!");
         }
         
+        Scanner sc = new Scanner (System.in);
+        //Lista<Integer> primera = new Lista<Integer>();
+        Lista <Integer> testReverse = new Lista<>();
+        for(int i = 0; i<3; i++){
+            System.out.println("Ingresa un numero");
+            testReverse.add(sc.nextInt());
+        }
+        for(int i = 0; i<testReverse.longi; i++){
+            //System.out.println("-->"+testReverse.);
+        }
         
 
 
