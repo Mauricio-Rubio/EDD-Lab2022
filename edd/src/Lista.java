@@ -1,11 +1,23 @@
-package Clases;
-
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 // iterador
 //next
 
 public class Lista<T> implements Collection<T> {
+
+    private Nodo cabeza;
+
+    public Nodo getCabeza() {
+        return this.cabeza;
+    }
+
+    private Nodo ultimo;
+
+    public Nodo getUltimo() {
+        return this.ultimo;
+    }
+
+    public int longi;
 
     // Clase Nodo
     private class Nodo {
@@ -75,10 +87,6 @@ public class Lista<T> implements Collection<T> {
 
     }
 
-    private Nodo cabeza;
-    private Nodo ultimo;
-    private int longi;
-
     /**
      * Agrega un elemento a la lista.
      * 
@@ -92,6 +100,8 @@ public class Lista<T> implements Collection<T> {
             throw new IllegalArgumentException("El elemento es null");
         }
         agregaFinal(elemento);
+        // System.out.println("->" + cabeza);
+        // System.out.println("u ->" + ultimo);
     }
 
     /**
@@ -277,11 +287,17 @@ public class Lista<T> implements Collection<T> {
      * 
      */
     public void reverse() {
-        Nodo aux = cabeza;
-        cabeza.siguiente = ultimo.anterior;
-        cabeza = aux;
-        ultimo.siguiente = aux.siguiente;
-        ultimo = aux;
+        Iterador iterador = new Iterador();
+        iterador.end();
+        if (longi != 0 && longi != 1) {
+            Lista<T> nueva = new Lista<T>();
+            while (iterador.hasPrevious()) {
+                nueva.add(iterador.previous());
+            }
+            cabeza = nueva.cabeza;
+            ultimo = nueva.ultimo;
+        }
+
         return;
     }
 
@@ -291,6 +307,7 @@ public class Lista<T> implements Collection<T> {
      * @return una representación en cadena de la coleccion.
      *         a -> b -> c -> d
      */
+        // Tu codigo aqui
     public String toString() {
         String elements = "";
         Iterador iterador = new Iterador();
@@ -307,6 +324,7 @@ public class Lista<T> implements Collection<T> {
             elements = elements.substring(0, elements.length() - 4);
             return elements;
         }
+
     }
 
     /**
