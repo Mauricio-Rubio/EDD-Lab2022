@@ -281,7 +281,11 @@ public class Lista<T> implements Collection<T> {
      * 
      */
     public void reverse() {
-        // Tu codigo aqui
+        Nodo aux = cabeza;
+        cabeza.siguiente = ultimo.anterior;
+        cabeza = aux;
+        ultimo.siguiente = aux.siguiente;
+        ultimo = aux;
         return ;
     }
 
