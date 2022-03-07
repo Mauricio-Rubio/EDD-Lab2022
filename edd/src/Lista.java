@@ -5,6 +5,20 @@ import java.util.NoSuchElementException;
 
 public class Lista<T> implements Collection<T> {
 
+    private Nodo cabeza;
+
+    public Nodo getCabeza() {
+        return this.cabeza;
+    }
+
+    private Nodo ultimo;
+
+    public Nodo getUltimo() {
+        return this.ultimo;
+    }
+
+    public int longi;
+
     // Clase Nodo
     private class Nodo {
         public T elemento;
@@ -73,10 +87,6 @@ public class Lista<T> implements Collection<T> {
 
     }
 
-    private Nodo cabeza;
-    private Nodo ultimo;
-    public int longi;
-
     /**
      * Agrega un elemento a la lista.
      * 
@@ -90,6 +100,8 @@ public class Lista<T> implements Collection<T> {
             throw new IllegalArgumentException("El elemento es null");
         }
         agregaFinal(elemento);
+        // System.out.println("->" + cabeza);
+        // System.out.println("u ->" + ultimo);
     }
 
     /**
@@ -275,11 +287,17 @@ public class Lista<T> implements Collection<T> {
      * 
      */
     public void reverse() {
-        Nodo aux = cabeza;
-        cabeza.siguiente = ultimo.anterior;
-        cabeza = aux;
-        ultimo.siguiente = aux.siguiente;
-        ultimo = aux;
+        Iterador iterador = new Iterador();
+        iterador.end();
+        if (longi != 0 && longi != 1) {
+            Lista<T> nueva = new Lista<T>();
+            while (iterador.hasPrevious()) {
+                nueva.add(iterador.previous());
+            }
+            cabeza = nueva.cabeza;
+            ultimo = nueva.ultimo;
+        }
+
         return;
     }
 
@@ -287,26 +305,26 @@ public class Lista<T> implements Collection<T> {
      * Regresa una representación en cadena de la coleccion.
      * 
      * @return una representación en cadena de la coleccion.
-     * a -> b -> c -> d
+     *         a -> b -> c -> d
      */
-    public String toString(){
+    public String toString() {
         // Tu codigo aqui
         String elements = "";
         Iterador iterador = new Iterador();
         int i = 0;
-        if(this.longi == 0){
+        if (this.longi == 0) {
             return "";
-        }else{
-            while(i<this.longi){
-                if(iterador.hasNext()){
-                    elements += iterador.next()+" -> ";
+        } else {
+            while (i < this.longi) {
+                if (iterador.hasNext()) {
+                    elements += iterador.next() + " -> ";
                 }
                 i++;
             }
-            elements = elements.substring(0, elements.length()-4);
+            elements = elements.substring(0, elements.length() - 4);
             return elements;
         }
-        
+
     }
 
     /**
