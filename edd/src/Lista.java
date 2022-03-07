@@ -296,8 +296,16 @@ public class Lista<T> implements Collection<T> {
      * a -> b -> c -> d
      */
     public String toString(){
-        // Tu codigo aqui
-        return "";
+        String elements = "";
+        Iterador iterador = new Iterador();
+        int i = 0;
+        elements += iterador.siguiente.elemento.toString();
+        while(i<this.longi){
+            if(iterador.hasNext()){
+                elements += iterador.next();
+            }
+        }
+        return elements;
     }
 
     /**
