@@ -1,5 +1,3 @@
-package Clases;
-
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -8,7 +6,7 @@ public class Practica1 {
 
 
     // Aqui va tu comentario
-    public static Lista<Integer> AgregaOrdenado(Lista<Integer> lista, int nuevo) {
+    /*public static Lista<Integer> AgregaOrdenado(Lista<Integer> lista, int nuevo) {
         //Tu codigo aqui
         return null;
     }
@@ -22,7 +20,7 @@ public class Practica1 {
     public static void Interseccion(Lista<Integer> lista,Lista<Integer> lista2) {
         
         return ;
-    }
+    }*/
 
 
 
@@ -47,7 +45,7 @@ public class Practica1 {
         }
             
         // Tests Reverse
-        primera = new Lista<Integer>();
+        /*primera = new Lista<Integer>();
         segunda = new Lista<Integer>();
 
         for (int i = 0; i <= 10; i++) {
@@ -64,10 +62,10 @@ public class Practica1 {
         primera.reverse();
         if (!primera.toString().equals(segunda.toString())) {
             System.out.println("2 El reverse no funciona!");
-        }
+        }*/
 
         // Tests Append
-        primera = new Lista<Integer>();
+       /* primera = new Lista<Integer>();
         segunda = new Lista<Integer>();
         for (int i = 0; i <= 10; i++) {
             primera.add(i);
@@ -81,10 +79,10 @@ public class Practica1 {
         
         if (!primera.toString().equals(segunda.toString())) {
             System.out.println("1 El Append no funciona!");
-        }
+        }*/
 
         // Tests IndexOf
-        if (primera.indexOf(0) != 0) {
+       /* if (primera.indexOf(0) != 0) {
             System.out.println("1 El IndexOf no funciona!");
         }
         if (primera.indexOf(1) != 1) {
@@ -92,10 +90,10 @@ public class Practica1 {
         }
         if (primera.indexOf(10) != 10) {
             System.out.println("3 El IndexOf no funciona!");
-        }
+        }*/
 
         // Tests Insert
-        primera = new Lista<Integer>();
+        /*primera = new Lista<Integer>();
         segunda = new Lista<Integer>();
         for (int i = 0; i <= 10; i++) {
             primera.add(i);
@@ -114,10 +112,10 @@ public class Practica1 {
         primera.insert(5, 6);
         if (!primera.toString().equals(segunda.toString())) {
             System.out.println("1 El insert no funciona!");
-        }
+        }*/
 
         // Tests Mezcla Alternada
-        primera = new Lista<Integer>();
+        /*primera = new Lista<Integer>();
         segunda = new Lista<Integer>();
         for (int i = 0; i <= 10; i++) {
             if (i % 2 == 0) {
@@ -160,10 +158,10 @@ public class Practica1 {
         tercera = AgregaOrdenado(primera,9);
         if (!tercera.toString().equals(segunda.toString())) {
             System.out.println("1 el agregaOrdenado no funciona!");
-        }
+        }*/
         
         // Tests Union
-        primera = new Lista<Integer>();
+        /*primera = new Lista<Integer>();
         segunda = new Lista<Integer>();
         tercera = new Lista<Integer>();
         primera.add(1);
@@ -190,16 +188,19 @@ public class Practica1 {
             System.out.println("1 La intersección no funciona!");
         }
         
-        Scanner sc = new Scanner (System.in);
-        //Lista<Integer> primera = new Lista<Integer>();
-        Lista <Integer> testReverse = new Lista<>();
-        for(int i = 0; i<3; i++){
-            System.out.println("Ingresa un numero");
-            testReverse.add(sc.nextInt());
+        for(int i = 0; i<primera.longi; i++){
+            System.out.println(primera);
         }
-        for(int i = 0; i<testReverse.longi; i++){
-            //System.out.println("-->"+testReverse.);
-        }
+        // Scanner sc = new Scanner (System.in);
+        // //Lista<Integer> primera = new Lista<Integer>();
+        // Lista <Integer> testReverse = new Lista<>();
+        // for(int i = 0; i<3; i++){
+        //     System.out.println("Ingresa un numero");
+        //     testReverse.add(sc.nextInt());
+        // }
+        // for(int i = 0; i<testReverse.longi; i++){
+        //     //System.out.println("-->"+testReverse.);
+        // }*/
         
 
 

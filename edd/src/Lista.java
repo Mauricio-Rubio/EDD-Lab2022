@@ -1,5 +1,3 @@
-package Clases;
-
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 // iterador
@@ -297,6 +295,7 @@ public class Lista<T> implements Collection<T> {
      */
     public String toString(){
         // Tu codigo aqui
+        String test = "0 -> 1 -> 2 -> 3 -> 4 -> 5";
         return "";
     }
 
