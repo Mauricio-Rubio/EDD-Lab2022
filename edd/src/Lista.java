@@ -334,7 +334,7 @@ public class Lista<T> implements Collection<T> {
     public void append(Lista<T> lista) {
         Iterator<T> iterador = lista.iterator();
         int x = 0;
-        if(equals(lista)){
+        if (equals(lista)) {
             while (x < lista.longi) {
                 if (iterador.hasNext()) {
                     this.add(iterador.next());
@@ -344,7 +344,7 @@ public class Lista<T> implements Collection<T> {
                 x++;
             }
         }
-        
+
         return;
     }
 
@@ -388,9 +388,20 @@ public class Lista<T> implements Collection<T> {
 
     // Tu comentario
     public void mezclaAlternada(Lista<T> lista) {
-        append(lista);
+        //append(lista);
+        Iterator<T> iteradorLista = lista.iterator();
+        Iterador iteradorThis = new Iterador();
         for (int i = 0; i < lista.longi + this.longi; i++) {
-
+            if (iteradorLista.hasNext() && iteradorThis.hasNext()) {
+                this.add(iteradorThis.next());
+                this.add(iteradorLista.next());
+            }
+        }
+        iteradorThis.start();
+        for(int i = 0; i<this.longi-lista.longi; i++){
+            if(iteradorThis.hasNext()){
+                this.delete(iteradorThis.next());
+            }
         }
         return;
     }
