@@ -289,7 +289,7 @@ public class Lista<T> implements Collection<T> {
      * 
      */
     public void reverse() {
-        Iterador iterador = new Iterador();
+       /* Iterador iterador = new Iterador();
         iterador.end();
         if (longi != 0 && longi != 1) {
             Lista<T> nueva = new Lista<T>();
@@ -298,7 +298,21 @@ public class Lista<T> implements Collection<T> {
             }
             cabeza = nueva.cabeza;
             ultimo = nueva.ultimo;
+        }*/
+        Iterador iterador = new Iterador();
+        iterador.end();
+        if (longi != 0 && longi != 1) {
+            for(int i = 0; i<this.longi; i++){
+                if(iterador.hasPrevious())
+                    this.add(iterador.previous());
+            }
+            iterador.start();
+            for(int i = 0; i<this.longi; i++){
+                if(iterador.hasNext())
+                    this.delete(iterador.next());
+            } 
         }
+
     }
 
     /**
