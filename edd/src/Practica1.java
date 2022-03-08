@@ -1,3 +1,4 @@
+package Clases;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -63,7 +64,12 @@ public class Practica1 {
         if (!primera.toString().equals(segunda.toString())) {
             System.out.println("2 El reverse no funciona!");
         }
-
+        for (int i = 0; i <= 5; i++) {
+            primera.add(i);
+            segunda.add(i);
+        }
+        primera.mezclaAlternada(segunda);
+        System.out.println(primera);
         // Tests Append
        /* primera = new Lista<Integer>();
         segunda = new Lista<Integer>();

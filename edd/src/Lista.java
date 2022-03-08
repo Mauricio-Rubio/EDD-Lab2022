@@ -1,3 +1,4 @@
+package Clases;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 // iterador
@@ -297,8 +298,6 @@ public class Lista<T> implements Collection<T> {
             cabeza = nueva.cabeza;
             ultimo = nueva.ultimo;
         }
-
-        return;
     }
 
     /**
@@ -307,7 +306,7 @@ public class Lista<T> implements Collection<T> {
      * @return una representación en cadena de la coleccion.
      *         a -> b -> c -> d
      */
-        // Tu codigo aqui
+    // Tu codigo aqui
     public String toString() {
         String elements = "";
         Iterador iterador = new Iterador();
@@ -376,7 +375,17 @@ public class Lista<T> implements Collection<T> {
 
     // Tu comentario
     public void mezclaAlternada(Lista<T> lista) {
+        unirListas(lista);
         return;
+    }
+
+    private void unirListas(Lista <T> lista){
+        int i = 0;
+        IteradorLista<T> iterador = lista.iteradorLista();
+        System.out.println(lista.longi);
+        while(i < lista.longi){
+            this.add(iterador.next());
+        }
     }
 
     /**
@@ -384,7 +393,7 @@ public class Lista<T> implements Collection<T> {
      * 
      * @return un iterador para recorrer la lista en una dirección.
      */
-    public Iterator<T> iterator() {
+    public Iterator <T> iterator() {
         return new Iterador();
     }
 
