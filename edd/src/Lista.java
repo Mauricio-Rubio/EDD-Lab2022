@@ -1,4 +1,5 @@
 package Clases;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 // iterador
@@ -379,12 +380,16 @@ public class Lista<T> implements Collection<T> {
         return;
     }
 
-    private void unirListas(Lista <T> lista){
-        int i = 0;
-        IteradorLista<T> iterador = lista.iteradorLista();
-        System.out.println(lista.longi);
-        while(i < lista.longi){
-            this.add(iterador.next());
+    private void unirListas(Lista<T> lista) {
+        Iterator<T> iterador = lista.iterator();
+        int x = 0;
+        while (x < lista.longi) {
+            if (iterador.hasNext()) {
+                this.add(iterador.next());
+            } else {
+                break;
+            }
+            x++;
         }
     }
 
@@ -393,7 +398,7 @@ public class Lista<T> implements Collection<T> {
      * 
      * @return un iterador para recorrer la lista en una dirección.
      */
-    public Iterator <T> iterator() {
+    public Iterator<T> iterator() {
         return new Iterador();
     }
 

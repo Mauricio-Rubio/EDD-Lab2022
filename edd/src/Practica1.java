@@ -68,6 +68,7 @@ public class Practica1 {
             primera.add(i);
             segunda.add(i);
         }
+        System.out.println("Segunda--> "+primera);
         primera.mezclaAlternada(segunda);
         System.out.println(primera);
         // Tests Append
