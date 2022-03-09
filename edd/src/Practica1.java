@@ -113,14 +113,6 @@ public class Practica1 {
         if (!primera.toString().equals(segunda.toString())) {
             System.out.println("1 El insert no funciona!");
         }
-        System.out.println(primera);
-        primera.insert(0, 50);
-        System.out.println(primera);
-        primera.insert(2, 500);
-        System.out.println(primera);
-        primera.insert(100, 5000);
-        System.out.println(primera);
-        System.out.println(primera.longi);
         // Tests Mezcla Alternada
         /*
          * primera = new Lista<Integer>();
