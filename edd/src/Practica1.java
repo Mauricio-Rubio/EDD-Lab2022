@@ -31,6 +31,7 @@ public class Practica1 {
         Lista<Integer> tercera = new Lista<Integer>();
 
         // Tests toString
+	/*
         for (int i = 0; i <= 5; i++) {
             primera.add(i);
         }
@@ -43,7 +44,7 @@ public class Practica1 {
         if (!primera.toString().equals("")) {
             System.out.println("2 El toString no funciona!");
         }
-
+	*/
         // Tests Reverse
         primera = new Lista<Integer>();
         segunda = new Lista<Integer>();
@@ -52,7 +53,7 @@ public class Practica1 {
             primera.add(i);
             segunda.agregaInicio(i);
         }
-
+ System.out.println(primera.toString());
         primera.reverse();
         if (!primera.toString().equals(segunda.toString())) {
             System.out.println("1 El reverse no funciona!");
@@ -78,6 +79,21 @@ public class Practica1 {
         if (!primera.toString().equals(segunda.toString())) {
             System.out.println("1 El Append no funciona!");
         }
+
+	//Test IndexOf
+	if (primera.indexOf(0) != 0) {
+          System.out.println("1 El IndexOf no funciona!");
+          }
+          if (primera.indexOf(1) != 1) {
+          System.out.println("2 El IndexOf no funciona!");
+          }
+          if (primera.indexOf(10) != 10) {
+	      System.out.println("10 El index no funciona");
+	  }
+
+	  System.out.println(primera.indexOf(1));
+	   System.out.println(primera.indexOf(2));
+	    System.out.println(primera.indexOf(10)); 
 
         // Tests IndexOf
         /*

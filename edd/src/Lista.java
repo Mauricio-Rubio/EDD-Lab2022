@@ -373,8 +373,29 @@ public class Lista<T> implements Collection<T> {
      *                                  <code>null</code>.
      */
     public int indexOf(T elemento) {
-        // Tu codigo aqui
-        return 0;
+        int cont=0;
+	 if (elemento == null) {
+            throw new IllegalArgumentException("El elemento es null");
+        }
+        Nodo nuevo = new Nodo(elemento);
+        if (cabeza == null) {
+             throw new IllegalArgumentException("La lista es vacía y no tiene ningún elemento");
+        }else{
+
+	     Nodo n = cabeza;
+        while (n != null) {
+            if (elemento.equals(n.elemento)) {
+		
+                break;
+            }
+            n = n.siguiente;
+	    cont++;
+        }
+	} 
+	
+	
+	
+        return cont;
 
     }
 
@@ -396,7 +417,26 @@ public class Lista<T> implements Collection<T> {
      *                                  <code>null</code>.
      */
     public void insert(int i, T elemento) {
-        // Tu codigo aqui
+	boolean lugar=false;
+	Nodo j = new Nodo(elemento);
+        if(i<0){
+	    agregarInicio(elemento);
+	}
+
+	if(i>=longi){
+	    agregarFinal(elemento);
+	}
+
+	
+	while(lugar==false){
+	    n= cabeza;
+	    if(indexOf(n)==i){
+		lugar=true;
+		
+	    }
+	    n=n.siguiente;
+	}
+	n.anterior.siguiente = j;
         return;
     }
 
