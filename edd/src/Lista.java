@@ -149,7 +149,7 @@ public class Lista<T> implements Collection<T> {
             nuevo.anterior = this.ultimo;
             this.ultimo = nuevo;
         }
-        longi++;
+        this.longi++;
     }
 
     private Nodo buscaElemento(T elemento) {
@@ -289,30 +289,19 @@ public class Lista<T> implements Collection<T> {
      * 
      */
     public void reverse() {
-       /* Iterador iterador = new Iterador();
-        iterador.end();
-        if (longi != 0 && longi != 1) {
-            Lista<T> nueva = new Lista<T>();
-            while (iterador.hasPrevious()) {
-                nueva.add(iterador.previous());
-            }
-            cabeza = nueva.cabeza;
-            ultimo = nueva.ultimo;
-        }*/
         Iterador iterador = new Iterador();
         iterador.end();
         if (longi != 0 && longi != 1) {
-            for(int i = 0; i<this.longi; i++){
-                if(iterador.hasPrevious())
+            for (int i = 0; i < this.longi; i++) {
+                if (iterador.hasPrevious())
                     this.add(iterador.previous());
             }
             iterador.start();
-            for(int i = 0; i<this.longi; i++){
-                if(iterador.hasNext())
+            for (int i = 0; i < this.longi; i++) {
+                if (iterador.hasNext())
                     this.delete(iterador.next());
-            } 
+            }
         }
-
     }
 
     /**
@@ -417,32 +406,36 @@ public class Lista<T> implements Collection<T> {
      *                                  <code>null</code>.
      */
     public void insert(int i, T elemento) {
-	boolean lugar=false;
-	Nodo j = new Nodo(elemento);
-        if(i<0){
-	    agregarInicio(elemento);
-	}
 
-	if(i>=longi){
-	    agregarFinal(elemento);
-	}
-
-	
-	while(lugar==false){
-	    n= cabeza;
-	    if(indexOf(n)==i){
-		lugar=true;
-		
-	    }
-	    n=n.siguiente;
-	}
-	n.anterior.siguiente = j;
-        return;
+        if (i <= 0){
+            agregaInicio(elemento);
+        }else if (i >= this.longi){
+            add(elemento);
+        }else {
+            Iterador iterador = new Iterador();
+            int logiAux = this.longi;
+            for (int j = 0; j < logiAux+1; j++) {
+                if(j == i){
+                    this.add(elemento);
+                }else{
+                    if(iterador.hasNext()){
+                        this.add(iterador.next());
+                    }
+                }
+            }
+            iterador.start();
+            for (int j = 0; j < logiAux; j++) {
+                if (iterador.hasNext())
+                    this.delete(iterador.next());
+            }
+        }
+        //this.longi++;
+        //return;
     }
 
     // Tu comentario
     public void mezclaAlternada(Lista<T> lista) {
-        //append(lista);
+        // append(lista);
         Iterator<T> iteradorLista = lista.iterator();
         Iterador iteradorThis = new Iterador();
         for (int i = 0; i < lista.longi + this.longi; i++) {
@@ -452,12 +445,11 @@ public class Lista<T> implements Collection<T> {
             }
         }
         iteradorThis.start();
-        for(int i = 0; i<this.longi-lista.longi; i++){
-            if(iteradorThis.hasNext()){
+        for (int i = 0; i < this.longi - lista.longi; i++) {
+            if (iteradorThis.hasNext()) {
                 this.delete(iteradorThis.next());
             }
         }
-        return;
     }
 
     /**
