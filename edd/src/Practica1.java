@@ -35,7 +35,7 @@ public class Practica1 {
             primera.add(i);
         }
         String test = "0 -> 1 -> 2 -> 3 -> 4 -> 5";
-        System.out.println(primera.toString());
+        // System.out.println(primera.toString());
         if (!primera.toString().equals(test)) {
             System.out.println("1 El toString no funciona!");
         }
@@ -93,29 +93,34 @@ public class Practica1 {
          */
 
         // Tests Insert
-        /*
-         * primera = new Lista<Integer>();
-         * segunda = new Lista<Integer>();
-         * for (int i = 0; i <= 10; i++) {
-         * primera.add(i);
-         * 
-         * }
-         * for (int i = 0; i <= 4; i++) {
-         * segunda.add(i);
-         * 
-         * }
-         * segunda.add(6);
-         * for (int i = 5; i <= 10; i++) {
-         * segunda.add(i);
-         * 
-         * }
-         * 
-         * primera.insert(5, 6);
-         * if (!primera.toString().equals(segunda.toString())) {
-         * System.out.println("1 El insert no funciona!");
-         * }
-         */
+        primera = new Lista<Integer>();
+        segunda = new Lista<Integer>();
+        for (int i = 0; i <= 10; i++) {
+            primera.add(i);
 
+        }
+        for (int i = 0; i <= 4; i++) {
+            segunda.add(i);
+
+        }
+        segunda.add(6);
+        for (int i = 5; i <= 10; i++) {
+            segunda.add(i);
+
+        }
+
+        primera.insert(5, 6);
+        if (!primera.toString().equals(segunda.toString())) {
+            System.out.println("1 El insert no funciona!");
+        }
+        System.out.println(primera);
+        primera.insert(0, 50);
+        System.out.println(primera);
+        primera.insert(2, 500);
+        System.out.println(primera);
+        primera.insert(100, 5000);
+        System.out.println(primera);
+        System.out.println(primera.longi);
         // Tests Mezcla Alternada
         /*
          * primera = new Lista<Integer>();
