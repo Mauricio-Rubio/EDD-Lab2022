@@ -6,24 +6,84 @@ import java.util.Scanner;
 public class Practica1 {
 
     // Aqui va tu comentario
-    /*
-     * public static Lista<Integer> AgregaOrdenado(Lista<Integer> lista, int nuevo)
-     * {
-     * //Tu codigo aqui
-     * return null;
-     * }
-     * 
+    
+      public static Lista<Integer> AgregaOrdenado(Lista<Integer> lista, int nuevo)
+      {
+      	int q = 0;
+	int r = 0;
+	Iterator<Integer> iterador = lista.iterator();
+	if(iterador.hasNext()){
+	    int p=0;
+	    boolean listo=false;
+	    p = 0;
+	    
+	    while(listo==false){
+		int c = lista.indexOf(p);
+	    if(p>=nuevo){
+		lista.insert(c,nuevo);
+		listo=true;
+	    }
+	    p++;
+	    }
+	}else{
+	    
+	    lista.add(nuevo);
+	}   
+	return lista;
+      
+      }
+    /* 
      * // Aqui va tu comentario
      * public static void Union(Lista<Integer> lista1,Lista<Integer> lista2) {
      * return ;
      * }
-     * 
-     * // Aqui va tu comentario
-     * public static void Interseccion(Lista<Integer> lista,Lista<Integer> lista2) {
-     * 
-     * return ;
-     * }
-     */
+     */ 
+      // Aqui va tu comentario
+      public static void Interseccion(Lista<Integer> lista,Lista<Integer> lista2) {
+	  Lista<Integer> listAux = lista;
+	  IteradorLista<Integer> ite = lista.iteradorLista();
+	  // Nodo n = new Nodo(elemento);
+	  while(ite.hasNext()){
+	  ite.start();
+	  // for(int i=0; i<listAux.longi; i++){
+	  // if(!iterador.hasNext()){
+	  //	  break;
+	  //  }
+	  int i = ite.next();
+	  
+	  if(!lista2.contains(i)){
+	      listAux.delete(i);
+
+	      
+	      
+	  }
+
+	  if(ite.next()==null){
+	      if(lista2.contains(ite.previous())){
+		  listAux.delete(ite.previous());
+	      }
+	  }
+	  /*else if(!lista2.contains(ite.previous())){
+	       listAux.delete(ite.previous());
+	  }else{
+	      listAux.add(ite.next()); 
+	  }
+	   */
+	  
+	  // }
+	  lista=listAux;
+
+	  
+	  
+	  i++;
+	  }
+	  ite.end();
+	  if(!lista2.contains(ite.previous())){
+	      listAux.delete(ite.next());
+	  }
+      return ;
+      }
+     
 
     public static void main(String[] args) {
         Lista<Integer> primera = new Lista<Integer>();
@@ -158,24 +218,27 @@ public class Practica1 {
          * }
          * 
          * 
-         * // Tests Agrega Ordenado
-         * primera = new Lista<Integer>();
-         * segunda = new Lista<Integer>();
-         * for (int i = 0; i <= 10; i++) {
-         * primera.add(i);
-         * }
-         * for (int i = 0; i <= 9; i++) {
-         * segunda.add(i);
-         * }
-         * segunda.add(9);
-         * segunda.add(10);
-         * 
-         * 
-         * tercera = AgregaOrdenado(primera,9);
-         * if (!tercera.toString().equals(segunda.toString())) {
-         * System.out.println("1 el agregaOrdenado no funciona!");
-         * }
-         */
+	 */
+	//Tests Agrega Ordenado
+         
+        primera = new Lista<Integer>();
+        segunda = new Lista<Integer>();
+	  for (int i = 0; i <= 10; i++) {
+            primera.add(i);
+        }
+	
+        for (int i = 0; i <= 9; i++) {
+            segunda.add(i);
+        }
+        segunda.add(9);
+        segunda.add(10);
+        
+        
+        tercera = AgregaOrdenado(primera,9);
+        if (!tercera.toString().equals(segunda.toString())) {
+            System.out.println("1 el agregaOrdenado no funciona!");
+        }
+	System.out.println(tercera.toString());
 
         // Tests Union
         /*
@@ -193,32 +256,63 @@ public class Practica1 {
          * System.out.println("1 La union no funciona!");
          * }
          * 
-         * // Tests interseccion
-         * primera = new Lista<Integer>();
-         * segunda = new Lista<Integer>();
-         * tercera = new Lista<Integer>();
-         * primera.add(1);
-         * primera.add(2);
-         * primera.add(3);
-         * segunda.add(2);
-         * Interseccion(primera, segunda);
-         * 
-         * if (!(primera.contains(2) && primera.size() == 1)) {
-         * System.out.println("1 La intersección no funciona!");
-         * }
-         * 
-         * for(int i = 0; i<primera.longi; i++){
-         * System.out.println(primera);
-         * }
-         * // Scanner sc = new Scanner (System.in);
-         * // //Lista<Integer> primera = new Lista<Integer>();
-         * // Lista <Integer> testReverse = new Lista<>();
-         * // for(int i = 0; i<3; i++){
-         * // System.out.println("Ingresa un numero");
-         * // testReverse.add(sc.nextInt());
-         * // }
-         * // for(int i = 0; i<testReverse.longi; i++){
-         * // //System.out.println("-->"+testReverse.);
+	 */
+         // Tests interseccion
+          primera = new Lista<Integer>();
+          segunda = new Lista<Integer>();
+          tercera = new Lista<Integer>();
+	  primera.add(-2);
+	  primera.add(-1);
+	  primera.add(0);
+          primera.add(1);
+          primera.add(2);
+          primera.add(3);
+	  segunda.add(1);
+          segunda.add(2);
+	  segunda.add(3);
+	  segunda.add(4);
+	  
+	  System.out.println("////////////");
+	  System.out.println(primera.toString());
+	  System.out.println(segunda.toString());
+          Interseccion(primera, segunda);
+          
+          if (!(primera.contains(2) && primera.size() == 1)) {
+          System.out.println("1 La intersección no funciona!");
+          }
+
+	  System.out.println("Interseccion "+primera.toString());
+	  System.out.println(segunda.toString());
+	  /*System.out.println("////////////");
+ Interseccion(primera, segunda);
+	   System.out.println(primera.toString());
+	 
+	  System.out.println("////////////");
+ Interseccion(primera, segunda);
+	   System.out.println(primera.toString());
+
+	    
+	  System.out.println("////////////");
+ Interseccion(primera, segunda);
+	   System.out.println(primera.toString());
+
+	    System.out.println("////////////");
+ Interseccion(primera, segunda);
+	   System.out.println(primera.toString());
+	  */
+          
+	  /* for(int i = 0; i<primera.longi; i++){
+          System.out.println(primera);
+          }
+          // Scanner sc = new Scanner (System.in);
+          // //Lista<Integer> primera = new Lista<Integer>();
+          // Lista <Integer> testReverse = new Lista<>();
+          // for(int i = 0; i<3; i++){
+          // System.out.println("Ingresa un numero");
+          // testReverse.add(sc.nextInt());
+          // }
+          // for(int i = 0; i<testReverse.longi; i++){
+          // //System.out.println("-->"+testReverse.);
          * // }
          */
 

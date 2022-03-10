@@ -469,4 +469,37 @@ public class Lista<T> implements Collection<T> {
     public IteradorLista<T> iteradorLista() {
         return new Iterador();
     }
+    //AGREGA ORDENADO
+    /* public  Lista<Integer> AgregaOrdenado(Lista<Integer> lista, int nuevo){
+	
+	int q = 0;
+	int r = 0;
+		Nodo n= this.cabeza;
+	q = (int)n.elemento;
+	r = (int)n.siguiente.elemento;
+	
+
+	Iterator<Integer> iterador = lista.iterator();
+	if(iterador.hasNext()){
+	    int p=0;
+	    boolean listo=false;
+	    p = 0;
+	    
+	    while(listo==false){
+		int c = lista.indexOf(p);
+	    if(p>=nuevo){
+		lista.insert(c,nuevo);
+		listo=true;
+	    }
+	    p++;
+	    }
+	}else{
+	    
+	    lista.add(nuevo);
+	}   
+	return lista;
+    }
+    */
+
+    
 }
