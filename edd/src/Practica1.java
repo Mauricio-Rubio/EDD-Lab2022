@@ -58,11 +58,29 @@ public class Practica1 {
 	      
 	  }
 
-	  if(ite.next()==null){
-	      if(lista2.contains(ite.previous())){
+	    if(ite.next()==null){
+	      if(!lista2.contains(ite.previous())){
 		  listAux.delete(ite.previous());
 	      }
 	  }
+
+	    if(ite.next()==null){
+		return;
+	    }
+
+	    
+	    
+	    if(lista2.contains(i) && lista2.contains(ite.previous())){
+		while(ite.hasNext()){
+		    if(!lista2.contains(i)){
+			    listAux.delete(i);
+			    break;
+			}
+		    i=ite.next();
+		    }
+		    
+		}
+
 	  /*else if(!lista2.contains(ite.previous())){
 	       listAux.delete(ite.previous());
 	  }else{
@@ -75,12 +93,13 @@ public class Practica1 {
 
 	  
 	  
-	  i++;
+	  //i++;
 	  }
-	  ite.end();
+	   ite.end();
 	  if(!lista2.contains(ite.previous())){
-	      listAux.delete(ite.next());
+	      listAux.delete(ite.previous());
 	  }
+	  
       return ;
       }
      
@@ -261,16 +280,27 @@ public class Practica1 {
           primera = new Lista<Integer>();
           segunda = new Lista<Integer>();
           tercera = new Lista<Integer>();
-	  primera.add(-2);
-	  primera.add(-1);
+	  //  primera.add(-2);
+	 
+	  primera.add(100);
+	       primera.add(-1);
 	  primera.add(0);
           primera.add(1);
           primera.add(2);
           primera.add(3);
+	  // primera.add(4);
+	  segunda.add(900);
+	  segunda.add(-1);
+	   segunda.add(-2);
+	  segunda.add(6);
+	  segunda.add(0);
 	  segunda.add(1);
-          segunda.add(2);
-	  segunda.add(3);
-	  segunda.add(4);
+	   segunda.add(10);
+	 
+	  segunda.add(2);
+	  // 
+	   segunda.add(4);
+	   segunda.add(3);
 	  
 	  System.out.println("////////////");
 	  System.out.println(primera.toString());
@@ -280,7 +310,7 @@ public class Practica1 {
           if (!(primera.contains(2) && primera.size() == 1)) {
           System.out.println("1 La intersección no funciona!");
           }
-
+	  
 	  System.out.println("Interseccion "+primera.toString());
 	  System.out.println(segunda.toString());
 	  /*System.out.println("////////////");
