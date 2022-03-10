@@ -3,6 +3,8 @@ package Clases;
 import java.util.Iterator;
 import java.util.Scanner;
 
+import Clases.IteradorLista;
+
 public class Practica1 {
 
     // Aqui va tu comentario
@@ -13,12 +15,27 @@ public class Practica1 {
      * return null;
      * }
      * 
-     * // Aqui va tu comentario
-     * public static void Union(Lista<Integer> lista1,Lista<Integer> lista2) {
-     * return ;
-     * }
-     * 
-     * // Aqui va tu comentario
+     */ // Aqui va tu comentario
+    public static void Union(Lista<Integer> lista1, Lista<Integer> lista2) {
+        Lista<Integer> nueva = new Lista<Integer>();
+        IteradorLista<Integer> iteradorL1 = lista1.iteradorLista();
+        IteradorLista<Integer> iteradorL2 = lista2.iteradorLista();
+        // System.out.println("--->"+iteradorL1.next());
+        while (iteradorL1.hasNext()) {
+            nueva.add(iteradorL1.next());
+        }
+        while (iteradorL2.hasNext()) {
+            if (!nueva.contains(iteradorL2.next())) {
+                iteradorL2.previous();
+                nueva.add(iteradorL2.next());
+            }
+        }
+        System.out.println(nueva);
+        return;
+    }
+
+    // Aqui va tu comentario
+    /*
      * public static void Interseccion(Lista<Integer> lista,Lista<Integer> lista2) {
      * 
      * return ;
@@ -113,6 +130,17 @@ public class Practica1 {
         if (!primera.toString().equals(segunda.toString())) {
             System.out.println("1 El insert no funciona!");
         }
+
+        primera = new Lista<Integer>();
+        segunda = new Lista<Integer>();
+        for (int i = 0; i <= 5; i++) {
+            primera.add(i);
+            segunda.add(i);
+        }
+        System.out.println("-->"+primera);
+        System.out.println("-->"+segunda);
+        Union(primera, segunda);
+
         // Tests Mezcla Alternada
         /*
          * primera = new Lista<Integer>();
