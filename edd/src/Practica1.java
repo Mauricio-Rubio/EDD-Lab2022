@@ -43,63 +43,25 @@ public class Practica1 {
 	  Lista<Integer> listAux = lista;
 	  IteradorLista<Integer> ite = lista.iteradorLista();
 	  // Nodo n = new Nodo(elemento);
-	  while(ite.hasNext()){
-	  ite.start();
-	  // for(int i=0; i<listAux.longi; i++){
-	  // if(!iterador.hasNext()){
-	  //	  break;
-	  //  }
-	  int i = ite.next();
+
+	  ////CODE
+
 	  
-	  if(!lista2.contains(i)){
-	      listAux.delete(i);
-
-	      
-	      
-	  }
-
-	    if(ite.next()==null){
-	      if(!lista2.contains(ite.previous())){
-		  listAux.delete(ite.previous());
+	  while(ite.hasNext()){
+	      //if(lista2.longi==1){
+	     
+	      int j = ite.next();
+	      if(lista2.contains(j)){
+		   
+		  //ite.previous();
+		  
+	      }else{
+		   ite.start();
+		  lista.delete(j);
 	      }
 	  }
 
-	    if(ite.next()==null){
-		return;
-	    }
-
-	    
-	    
-	    if(lista2.contains(i) && lista2.contains(ite.previous())){
-		while(ite.hasNext()){
-		    if(!lista2.contains(i)){
-			    listAux.delete(i);
-			    break;
-			}
-		    i=ite.next();
-		    }
-		    
-		}
-
-	  /*else if(!lista2.contains(ite.previous())){
-	       listAux.delete(ite.previous());
-	  }else{
-	      listAux.add(ite.next()); 
-	  }
-	   */
-	  
-	  // }
-	  lista=listAux;
-
-	  
-	  
-	  //i++;
-	  }
-	   ite.end();
-	  if(!lista2.contains(ite.previous())){
-	      listAux.delete(ite.previous());
-	  }
-	  
+	  // lista=listAux;
       return ;
       }
      
@@ -280,27 +242,17 @@ public class Practica1 {
           primera = new Lista<Integer>();
           segunda = new Lista<Integer>();
           tercera = new Lista<Integer>();
-	  //  primera.add(-2);
-	 
-	  primera.add(100);
-	       primera.add(-1);
-	  primera.add(0);
-          primera.add(1);
-          primera.add(2);
-          primera.add(3);
-	  // primera.add(4);
-	  segunda.add(900);
-	  segunda.add(-1);
-	   segunda.add(-2);
-	  segunda.add(6);
-	  segunda.add(0);
-	  segunda.add(1);
-	   segunda.add(10);
-	 
-	  segunda.add(2);
-	  // 
-	   segunda.add(4);
-	   segunda.add(3);
+
+	  for(int i=-5; i<=5;i++){
+
+	      primera.add(i);
+	  }
+
+	   for(int i=0; i<=10;i++){
+
+	      segunda.add(i);
+	  }
+	   
 	  
 	  System.out.println("////////////");
 	  System.out.println(primera.toString());
