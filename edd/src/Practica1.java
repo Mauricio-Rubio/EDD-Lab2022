@@ -131,46 +131,44 @@ public class Practica1 {
             System.out.println("1 El insert no funciona!");
         }
 
+        // Tests Mezcla Alternada
         primera = new Lista<Integer>();
         segunda = new Lista<Integer>();
+        /*for (int i = 0; i <= 10; i++) {
+            if (i % 2 == 0) {
+                primera.add(i);
+            }
+        }
+        primera.add(11);
+        for (int i = 0; i <= 10; i++) {
+            if (i % 2 != 0) {
+                segunda.add(i);
+            }
+
+        }
+        for (int i = 0; i <= 11; i++) {
+
+            tercera.add(i);
+
+        }*/
         for (int i = 0; i <= 5; i++) {
             primera.add(i);
-            segunda.add(i);
+            segunda.add(i*20);
         }
-        System.out.println("-->"+primera);
-        System.out.println("-->"+segunda);
-        Union(primera, segunda);
+        segunda.add(200);
+        segunda.add(300);
+        segunda.add(400);
 
-        // Tests Mezcla Alternada
+        System.out.println("primera-->" + primera);
+        System.out.println("segunda-->" + segunda);
+        primera.mezclaAlternada(segunda);
+        System.out.println("primera alternada-->" + primera);
+        if (!primera.toString().equals(tercera.toString())) {
+            System.out.println("1 la mezclaAlternada no funciona!");
+        }
+
+        // Tests Agrega Ordenado
         /*
-         * primera = new Lista<Integer>();
-         * segunda = new Lista<Integer>();
-         * for (int i = 0; i <= 10; i++) {
-         * if (i % 2 == 0) {
-         * primera.add(i);
-         * }
-         * }
-         * primera.add(11);
-         * for (int i = 0; i <= 10; i++) {
-         * if (i % 2 != 0) {
-         * segunda.add(i);
-         * }
-         * 
-         * }
-         * for (int i = 0; i <= 11; i++) {
-         * 
-         * tercera.add(i);
-         * 
-         * }
-         * 
-         * 
-         * primera.mezclaAlternada(segunda);
-         * if (!primera.toString().equals(tercera.toString())) {
-         * System.out.println("1 la mezclaAlternada no funciona!");
-         * }
-         * 
-         * 
-         * // Tests Agrega Ordenado
          * primera = new Lista<Integer>();
          * segunda = new Lista<Integer>();
          * for (int i = 0; i <= 10; i++) {
@@ -190,21 +188,21 @@ public class Practica1 {
          */
 
         // Tests Union
+
+        primera = new Lista<Integer>();
+        segunda = new Lista<Integer>();
+        tercera = new Lista<Integer>();
+        primera.add(1);
+        primera.add(2);
+        primera.add(3);
+        segunda.add(2);
+        Union(primera, segunda);
+
+        if (!(primera.contains(1) && primera.contains(2) && primera.contains(3) &&
+                primera.size() == 3)) {
+            System.out.println("1 La union no funciona!");
+        }
         /*
-         * primera = new Lista<Integer>();
-         * segunda = new Lista<Integer>();
-         * tercera = new Lista<Integer>();
-         * primera.add(1);
-         * primera.add(2);
-         * primera.add(3);
-         * segunda.add(2);
-         * Union(primera, segunda);
-         * 
-         * if (!(primera.contains(1) && primera.contains(2) && primera.contains(3) &&
-         * primera.size() == 3)) {
-         * System.out.println("1 La union no funciona!");
-         * }
-         * 
          * // Tests interseccion
          * primera = new Lista<Integer>();
          * segunda = new Lista<Integer>();

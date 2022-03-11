@@ -385,18 +385,18 @@ public class Lista<T> implements Collection<T> {
      *                                  <code>null</code>.
      */
     public void insert(int i, T elemento) {
-        if (i <= 0){
+        if (i <= 0) {
             agregaInicio(elemento);
-        }else if (i >= this.longi){
+        } else if (i >= this.longi) {
             add(elemento);
-        }else {
+        } else {
             Iterador iterador = new Iterador();
             int logiAux = this.longi;
-            for (int j = 0; j < logiAux+1; j++) {
-                if(j == i){
+            for (int j = 0; j < logiAux + 1; j++) {
+                if (j == i) {
                     this.add(elemento);
-                }else{
-                    if(iterador.hasNext()){
+                } else {
+                    if (iterador.hasNext()) {
                         this.add(iterador.next());
                     }
                 }
@@ -407,8 +407,8 @@ public class Lista<T> implements Collection<T> {
                     this.delete(iterador.next());
             }
         }
-        //this.longi++;
-        //return;
+        // this.longi++;
+        // return;
     }
 
     // Tu comentario
@@ -416,18 +416,93 @@ public class Lista<T> implements Collection<T> {
         // append(lista);
         Iterator<T> iteradorLista = lista.iterator();
         Iterador iteradorThis = new Iterador();
-        for (int i = 0; i < lista.longi + this.longi; i++) {
-            if (iteradorLista.hasNext() && iteradorThis.hasNext()) {
-                this.add(iteradorThis.next());
-                this.add(iteradorLista.next());
+        int longiAux = this.size();
+
+        // this y lista tiene el mismo tamaño
+        if (this.size() == lista.size()) {
+
+            for (int i = 0; i < lista.longi + this.longi; i++) {
+                if (iteradorLista.hasNext() && iteradorThis.hasNext()) {
+                    this.add(iteradorThis.next());
+                    this.add(iteradorLista.next());
+                }
+            }
+            iteradorThis.start();
+            for (int i = 0; i < longiAux; i++) {
+                if (iteradorThis.hasNext()) {
+                    this.delete(iteradorThis.next());
+                }
+            }
+
+        } 
+        // this es mas grande que lista
+
+        else if (this.size() > lista.size()) {
+
+            for (int i = 0; i < longiAux; i++) {
+                if (iteradorLista.hasNext() && iteradorThis.hasNext()) {
+                    this.add(iteradorThis.next());
+                    this.add(iteradorLista.next());
+                }
+            }
+            for (int i = 0; i < longiAux - lista.size(); i++) {
+                if (iteradorThis.hasNext()) {
+                    this.add(iteradorThis.next());
+                }
+            }
+            iteradorThis.start();
+            for (int i = 0; i < longiAux; i++) {
+                if (iteradorThis.hasNext()) {
+                    this.delete(iteradorThis.next());
+                }
             }
         }
-        iteradorThis.start();
-        for (int i = 0; i < this.longi - lista.longi; i++) {
-            if (iteradorThis.hasNext()) {
-                this.delete(iteradorThis.next());
+        // lista es más grande que this
+
+        else{
+            for (int i = 0; i < longiAux; i++) {
+                if (iteradorLista.hasNext() && iteradorThis.hasNext()) {
+                    this.add(iteradorThis.next());
+                    this.add(iteradorLista.next());
+                }
+            }
+            for (int i = 0; i < lista.size() - longiAux ; i++) {
+                if (iteradorLista.hasNext()) {
+                    this.add(iteradorLista.next());
+                }
+            }
+            iteradorThis.start();
+            for (int i = 0; i < longiAux; i++) {
+                if (iteradorThis.hasNext()) {
+                    this.delete(iteradorThis.next());
+                }
             }
         }
+        /*
+         * while (iteradorThis.hasNext() && iteradorLista.hasNext()) {
+         * System.out.println(iteradorThis.next());
+         * System.out.println(iteradorLista.next());
+         * }
+         * /*
+         * for (int i = 0; i < lista.longi + longiAux+4; i++) {
+         * System.out.println("i "+i);
+         * if (iteradorThis.hasNext()) {
+         * this.add(iteradorThis.next());
+         * }
+         * // this.add(iteradorLista.next());
+         * if (iteradorLista.hasNext()) {
+         * this.add(iteradorLista.next());
+         * }
+         * }
+         * System.out.println(this);
+         * iteradorThis.start();
+         * for (int i = 0; i < this.longi - lista.longi; i++) {
+         * if (iteradorThis.hasNext()) {
+         * this.delete(iteradorThis.next());
+         * }
+         * }
+         */
+        // System.out.println(this);
     }
 
     /**
