@@ -20,7 +20,6 @@ public class Practica1 {
         Lista<Integer> nueva = new Lista<Integer>();
         IteradorLista<Integer> iteradorL1 = lista1.iteradorLista();
         IteradorLista<Integer> iteradorL2 = lista2.iteradorLista();
-        // System.out.println("--->"+iteradorL1.next());
         while (iteradorL1.hasNext()) {
             nueva.add(iteradorL1.next());
         }
@@ -30,17 +29,16 @@ public class Practica1 {
                 nueva.add(iteradorL2.next());
             }
         }
-        System.out.println(nueva);
+        //System.out.println(nueva);
         return;
     }
 
     // Aqui va tu comentario
-    /*
-     * public static void Interseccion(Lista<Integer> lista,Lista<Integer> lista2) {
-     * 
-     * return ;
-     * }
-     */
+
+    public static void Interseccion(Lista<Integer> lista, Lista<Integer> lista2) {
+
+        return;
+    }
 
     public static void main(String[] args) {
         Lista<Integer> primera = new Lista<Integer>();
@@ -97,17 +95,17 @@ public class Practica1 {
         }
 
         // Tests IndexOf
-        /*
-         * if (primera.indexOf(0) != 0) {
-         * System.out.println("1 El IndexOf no funciona!");
-         * }
-         * if (primera.indexOf(1) != 1) {
-         * System.out.println("2 El IndexOf no funciona!");
-         * }
-         * if (primera.indexOf(10) != 10) {
-         * System.out.println("3 El IndexOf no funciona!");
-         * }
-         */
+        
+          if (primera.indexOf(0) != 0) {
+          System.out.println("1 El IndexOf no funciona!");
+          }
+          if (primera.indexOf(1) != 1) {
+          System.out.println("2 El IndexOf no funciona!");
+          }
+          if (primera.indexOf(10) != 10) {
+          System.out.println("3 El IndexOf no funciona!");
+          }
+         
 
         // Tests Insert
         primera = new Lista<Integer>();
@@ -134,7 +132,7 @@ public class Practica1 {
         // Tests Mezcla Alternada
         primera = new Lista<Integer>();
         segunda = new Lista<Integer>();
-        /*for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i <= 10; i++) {
             if (i % 2 == 0) {
                 primera.add(i);
             }
@@ -150,45 +148,31 @@ public class Practica1 {
 
             tercera.add(i);
 
-        }*/
-        for (int i = 0; i <= 5; i++) {
-            primera.add(i);
-            segunda.add(i*20);
         }
-        segunda.add(200);
-        segunda.add(300);
-        segunda.add(400);
 
-        System.out.println("primera-->" + primera);
-        System.out.println("segunda-->" + segunda);
         primera.mezclaAlternada(segunda);
-        System.out.println("primera alternada-->" + primera);
         if (!primera.toString().equals(tercera.toString())) {
             System.out.println("1 la mezclaAlternada no funciona!");
         }
 
         // Tests Agrega Ordenado
-        /*
-         * primera = new Lista<Integer>();
-         * segunda = new Lista<Integer>();
-         * for (int i = 0; i <= 10; i++) {
-         * primera.add(i);
-         * }
-         * for (int i = 0; i <= 9; i++) {
-         * segunda.add(i);
-         * }
-         * segunda.add(9);
-         * segunda.add(10);
-         * 
-         * 
-         * tercera = AgregaOrdenado(primera,9);
-         * if (!tercera.toString().equals(segunda.toString())) {
-         * System.out.println("1 el agregaOrdenado no funciona!");
-         * }
-         */
+        primera = new Lista<Integer>();
+        segunda = new Lista<Integer>();
+        for (int i = 0; i <= 10; i++) {
+            primera.add(i);
+        }
+        for (int i = 0; i <= 9; i++) {
+            segunda.add(i);
+        }
+        segunda.add(9);
+        segunda.add(10);
+
+        // tercera = AgregaOrdenado(primera,9);
+        if (!tercera.toString().equals(segunda.toString())) {
+            System.out.println("1 el agregaOrdenado no funciona!");
+        }
 
         // Tests Union
-
         primera = new Lista<Integer>();
         segunda = new Lista<Integer>();
         tercera = new Lista<Integer>();
@@ -198,39 +182,23 @@ public class Practica1 {
         segunda.add(2);
         Union(primera, segunda);
 
-        if (!(primera.contains(1) && primera.contains(2) && primera.contains(3) &&
-                primera.size() == 3)) {
+        if (!(primera.contains(1) && primera.contains(2) && primera.contains(3) && primera.size() == 3)) {
             System.out.println("1 La union no funciona!");
         }
-        /*
-         * // Tests interseccion
-         * primera = new Lista<Integer>();
-         * segunda = new Lista<Integer>();
-         * tercera = new Lista<Integer>();
-         * primera.add(1);
-         * primera.add(2);
-         * primera.add(3);
-         * segunda.add(2);
-         * Interseccion(primera, segunda);
-         * 
-         * if (!(primera.contains(2) && primera.size() == 1)) {
-         * System.out.println("1 La intersección no funciona!");
-         * }
-         * 
-         * for(int i = 0; i<primera.longi; i++){
-         * System.out.println(primera);
-         * }
-         * // Scanner sc = new Scanner (System.in);
-         * // //Lista<Integer> primera = new Lista<Integer>();
-         * // Lista <Integer> testReverse = new Lista<>();
-         * // for(int i = 0; i<3; i++){
-         * // System.out.println("Ingresa un numero");
-         * // testReverse.add(sc.nextInt());
-         * // }
-         * // for(int i = 0; i<testReverse.longi; i++){
-         * // //System.out.println("-->"+testReverse.);
-         * // }
-         */
+
+        // Tests interseccion
+        primera = new Lista<Integer>();
+        segunda = new Lista<Integer>();
+        tercera = new Lista<Integer>();
+        primera.add(1);
+        primera.add(2);
+        primera.add(3);
+        segunda.add(2);
+        Interseccion(primera, segunda);
+
+        if (!(primera.contains(2) && primera.size() == 1)) {
+            System.out.println("1 La intersección no funciona!");
+        }
 
     }
 
