@@ -11,6 +11,7 @@ public class Practica1 {
       {
       	int q = 0;
 	int r = 0;
+	Lista<Integer> listAux = lista.clone();
 	Iterator<Integer> iterador = lista.iterator();
 	if(iterador.hasNext()){
 	    int p=0;
@@ -20,16 +21,16 @@ public class Practica1 {
 	    while(listo==false){
 		int c = lista.indexOf(p);
 	    if(p>=nuevo){
-		lista.insert(c,nuevo);
+		listAux.insert(c,nuevo);
 		listo=true;
 	    }
 	    p++;
 	    }
 	}else{
 	    
-	    lista.add(nuevo);
+	    listAux.add(nuevo);
 	}   
-	return lista;
+	return listAux;
       
       }
     /* 
@@ -122,6 +123,8 @@ public class Practica1 {
         }
 
 	//Test IndexOf
+	//primera.empty();
+	System.out.println("TEST DEL INDEXOD");
 	if (primera.indexOf(0) != 0) {
           System.out.println("1 El IndexOf no funciona!");
           }
@@ -131,10 +134,13 @@ public class Practica1 {
           if (primera.indexOf(10) != 10) {
 	      System.out.println("10 El index no funciona");
 	  }
+	  //primera.agregaFinal(1);
 
 	  System.out.println(primera.indexOf(1));
 	   System.out.println(primera.indexOf(2));
-	    System.out.println(primera.indexOf(10)); 
+	    System.out.println(primera.indexOf(10));
+	    // System.out.println(primera.indexOf(100));
+	    	System.out.println("FIN TEST DEL INDEXOD");
 
         // Tests IndexOf
         /*
@@ -213,13 +219,20 @@ public class Practica1 {
         }
         segunda.add(9);
         segunda.add(10);
+        System.out.println("\n TEST AGREGA ORDENADO");
+        	System.out.println(primera.toString());
+		tercera = AgregaOrdenado(tercera,9);
+	System.out.println(tercera.toString());
         
-        
-        tercera = AgregaOrdenado(primera,9);
+	 System.out.println("\n **********");
         if (!tercera.toString().equals(segunda.toString())) {
             System.out.println("1 el agregaOrdenado no funciona!");
         }
+primera=	AgregaOrdenado(primera,-1);
+		System.out.println(primera.toString());
 	System.out.println(tercera.toString());
+	 System.out.println("\n FIN  TEST AGREGA ORDENADO");
+	
 
         // Tests Union
         /*
