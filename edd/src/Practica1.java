@@ -55,6 +55,9 @@ public class Practica1 {
      *
      *Tiempo: O(n/m)
      *Espacio: O(n) u O(m) si m>n
+     *
+     *¿Como lo mejorariamos?
+     *Para mejorar el tiempo, pensaria en buscar una manera de hacerlo de O(n) o O(n^2), puesto que hay casos en los que O(n*m) es mucho mayor en tiempo que los anteriores mencionados, por ello,primero haria copias de las listas (toma O(n) + O(m))  consideraria hacer metodos para eliminar repetidos de las listas que sean mas eficientes en tiempo, sin repetidos, ordenamos las listas (con un buen algoritmo nos puede tomar menos de O(n^2)) y una vez ordenadas unirlas con mezclaOrdenada (cuyo tiempo es O(n+m)) y entonces, utilizando unas de las lineas de codigo implementadas en el algoritmo, en vez de eliminar repetidos, agregar a una lista nueva solamente los repetidos y asi el tiempo seria, a lo mucho O(n^2), pero perderiamos en memoria. 
      */ 
       // Aqui va tu comentario
       public static void Interseccion(Lista<Integer> lista,Lista<Integer> lista2) {
