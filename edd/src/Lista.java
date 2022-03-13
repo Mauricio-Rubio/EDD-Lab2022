@@ -371,7 +371,7 @@ public class Lista<T> implements Collection<T> {
         }
         
         if(!contains(elemento)){
-        throw new IllegalArgumentException("El elemento no se encuentra en la lista");
+        throw new NoSuchElementException("El elemento no se encuentra en la lista");
         }
         
         
