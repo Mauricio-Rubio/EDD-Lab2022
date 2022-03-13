@@ -359,7 +359,9 @@ public class Lista<T> implements Collection<T> {
      * @param elemento elemento del cual queremos conocer la posición.
      * @return entero con la posicion del elemento
      * @throws IllegalArgumentException si <code>elemento</code> es
-     *                                  <code>null</code>.
+     *                                       <code>null</code>.
+     * @throws NoSuchElementException si lista.contains(elemento)==false
+     * @throws NoSuchElementException si lista.isEmpty(elemento)==true
      */
     public int indexOf(T elemento) {
         int cont=0;

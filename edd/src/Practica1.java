@@ -5,12 +5,16 @@ import java.util.Scanner;
 
 public class Practica1 {
 
-    /* 
+    /**
+     *Metodo para agregar un elemento en una lista ordenada en el lugar correspondiente.
      *Nuestro algoritmo utiliza un tiempo O(n) puesto que para agregar el elemento de manera ordenada, debe recorrer la lista hasta encontrar un número que sea mayor que el que queremos agregar a la lista. En el peor de los casos, ninguno de los elementos de la lista es mayor al que deseamos agregar; por ello, hemos recorrido todos los elementos de la lista y al final agregamos el nuevo elemento.
      *
      *Suponiendo de nuestra lista tiene n elementos y se da el peor de los casos, hemos hecho n comparaciones, por lo que estaríamos en un tiempo O(n).
      *
      *En cuanto al espacio, nuestro algoritmo usa espacio O(1), puesto que sólo creamos un iterador, una variable booleana y dos variables de tipo entero, por lo que el espacio que ocupas es siempre la misma cantidad y, por lo tanto, constante. Por lo tanto, el espacio que ocupamos pertenece a O(1).
+     *@param lista Representa una lista de enteros a la que se le agregara un elemento
+     *@param nuevo Representa el elemento tipo int a agregar en la lista
+     *@return lista Regresa la lista que recibimos como parametro ya modificada
      */
     
       public static Lista<Integer> AgregaOrdenado(Lista<Integer> lista, int nuevo)
@@ -39,7 +43,7 @@ public class Practica1 {
 	return lista;
       
       }
-    /* 
+    /** Metodo para obtener la interseccion entre dos listas
      * En cuanto a tiempo, nuestro algoritmo toma un tiempo de O(n*m) siendo n el número de elementos de "lista" y m el número de elementos de "lista2".
      *
      *Ello debido a que por cada elemento de "lista" evaluamos si se encuentra en "lista" con el método contains(), (que tiene un tiempo O(n), pero al ser ocupado sobre la segunda lista sería tiempo 0(m)), teniendo en ese primer paso O(n*m) en tiempo.
@@ -57,7 +61,9 @@ public class Practica1 {
      *Espacio: O(n) u O(m) si m>n
      *
      *¿Como lo mejorariamos?
-     *Para mejorar el tiempo, pensaria en buscar una manera de hacerlo de O(n) o O(n^2), puesto que hay casos en los que O(n*m) es mucho mayor en tiempo que los anteriores mencionados, por ello,primero haria copias de las listas (toma O(n) + O(m))  consideraria hacer metodos para eliminar repetidos de las listas que sean mas eficientes en tiempo, sin repetidos, ordenamos las listas (con un buen algoritmo nos puede tomar menos de O(n^2)) y una vez ordenadas unirlas con mezclaOrdenada (cuyo tiempo es O(n+m)) y entonces, utilizando unas de las lineas de codigo implementadas en el algoritmo, en vez de eliminar repetidos, agregar a una lista nueva solamente los repetidos y asi el tiempo seria, a lo mucho O(n^2), pero perderiamos en memoria. 
+     *Para mejorar el tiempo, pensaria en buscar una manera de hacerlo de O(n) o O(n^2), puesto que hay casos en los que O(n*m) es mucho mayor en tiempo que los anteriores mencionados, por ello,primero haria copias de las listas (toma O(n) + O(m))  consideraria hacer metodos para eliminar repetidos de las listas que sean mas eficientes en tiempo, sin repetidos, ordenamos las listas (con un buen algoritmo nos puede tomar menos de O(n^2)) y una vez ordenadas unirlas con mezclaOrdenada (cuyo tiempo es O(n+m)) y entonces, utilizando unas de las lineas de codigo implementadas en el algoritmo, en vez de eliminar repetidos, agregar a una lista nueva solamente los repetidos y asi el tiempo seria, a lo mucho O(n^2), pero perderiamos en memoria.
+     *@param lista Representa la primer lista a considerar para la interseccion, esta sera modificada
+     *@param lista2 Representa la otra lista de enteros con la que haremos la interseccion, esta no sera modificada 
      */ 
       // Aqui va tu comentario
       public static void Interseccion(Lista<Integer> lista,Lista<Integer> lista2) {
