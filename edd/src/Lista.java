@@ -478,31 +478,21 @@ public class Lista<T> implements Collection<T> {
                 }
             }
         }
-        /*
-         * while (iteradorThis.hasNext() && iteradorLista.hasNext()) {
-         * System.out.println(iteradorThis.next());
-         * System.out.println(iteradorLista.next());
-         * }
-         * /*
-         * for (int i = 0; i < lista.longi + longiAux+4; i++) {
-         * System.out.println("i "+i);
-         * if (iteradorThis.hasNext()) {
-         * this.add(iteradorThis.next());
-         * }
-         * // this.add(iteradorLista.next());
-         * if (iteradorLista.hasNext()) {
-         * this.add(iteradorLista.next());
-         * }
-         * }
-         * System.out.println(this);
-         * iteradorThis.start();
-         * for (int i = 0; i < this.longi - lista.longi; i++) {
-         * if (iteradorThis.hasNext()) {
-         * this.delete(iteradorThis.next());
-         * }
-         * }
-         */
-        // System.out.println(this);
+    }
+
+    protected void eliminarRepetidos(){
+        Nodo aux = this.getCabeza();
+        System.out.println("Aux "+aux.elemento);
+        Iterador iterador = new Iterador();
+        iterador.next();
+        while(iterador.hasNext()){
+            if(iterador.next()==aux.elemento){
+                this.delete(aux.elemento);
+                iterador.start();
+            }else{
+                System.out.println("No paso la condicion");
+            }
+        }
     }
 
     /**

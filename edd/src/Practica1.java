@@ -1,7 +1,10 @@
 package Clases;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
+
+import javax.sound.sampled.SourceDataLine;
 
 import Clases.IteradorLista;
 
@@ -17,19 +20,16 @@ public class Practica1 {
      * 
      */ // Aqui va tu comentario
     public static void Union(Lista<Integer> lista1, Lista<Integer> lista2) {
-        Lista<Integer> nueva = new Lista<Integer>();
         IteradorLista<Integer> iteradorL1 = lista1.iteradorLista();
         IteradorLista<Integer> iteradorL2 = lista2.iteradorLista();
-        while (iteradorL1.hasNext()) {
-            nueva.add(iteradorL1.next());
-        }
-        while (iteradorL2.hasNext()) {
-            if (!nueva.contains(iteradorL2.next())) {
+        int longiAux= lista1.size();
+        int longiAux2= lista2.size();
+        for(int i = 0; i<longiAux2; i++){
+            if(!lista1.contains(iteradorL2.next())){
                 iteradorL2.previous();
-                nueva.add(iteradorL2.next());
+                lista1.add(iteradorL2.next());
             }
         }
-        //System.out.println(nueva);
         return;
     }
 
@@ -186,6 +186,23 @@ public class Practica1 {
             System.out.println("1 La union no funciona!");
         }
 
+ 
+        primera = new Lista<Integer>();
+        segunda = new Lista <Integer>();
+        for(int i = 0; i<10; i++){
+            primera.add(i);
+            segunda.add(i);
+        }
+        segunda.add(100);
+        //primera.add(10);
+        //primera.add(20);
+        System.out.println("Primera "+primera);
+        System.out.println("Segunda "+segunda);
+        Union(primera, segunda);
+        System.out.println("Resultado "+primera);
+        //primera.eliminarRepetidos();
+        //System.out.println("Resultado 2 "+primera);
+        /*
         // Tests interseccion
         primera = new Lista<Integer>();
         segunda = new Lista<Integer>();
@@ -198,7 +215,7 @@ public class Practica1 {
 
         if (!(primera.contains(2) && primera.size() == 1)) {
             System.out.println("1 La intersección no funciona!");
-        }
+        }*/
 
     }
 
