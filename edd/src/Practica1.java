@@ -10,22 +10,33 @@ import Clases.IteradorLista;
 
 public class Practica1 {
 
-    // Aqui va tu comentario
-    /*
-     * public static Lista<Integer> AgregaOrdenado(Lista<Integer> lista, int nuevo)
-     * {
-     * //Tu codigo aqui
-     * return null;
-     * }
+    
+    /** Hacer la unión de conjuntos representador en listas
      * 
-     */ // Aqui va tu comentario
+     * Primero necesitamos los iteradores de ambas listas, luego solo necesitamos
+     * recorrer una de las dos listas, es este caso decidí que fuese la primera,
+     * por ello recorremos la segunda lista (como solo recorremos la lista, el tiempo
+     * de ejecución es de O(n)) y preguntamos si tal elemento ya están en la lista1, sólo
+     * en caso de no estar será cuando lo agregaremos en la primer lista
+     * 
+     * ¿Cómo mejoraríamos el tiempo?
+     * El detalle con este método, es que al preguntar si existe (contains) dentro de un for,
+     * la complejidad es O(n*m), osea que si ambas listas tienen longitud 1000, haremos un millón 
+     * de ejecuciones. Lo que se podría hacer, es ordenar ambas listas (lo cuál sólo requeriría un for)
+     * y como estamos hablando de números enteros, es posible, posteriormente a manera de pilas
+     * comparar los números, si los de una pila son más pequeños que los de otra, agregamos el pequeño,
+     * de otro modo agregamos el granda, así hasta haber recorrdio ambas pilas, luego preguntamos
+     * si son iguales, en caso de que sí, nos saltaremos de posición en ambas pilas, como sólo se
+     * necesita de un bucle para hacer esto, la complejidad del tiemo sería O(n+m)
+     * 
+     * @param lista1
+     * @param lista2
+     */
     public static void Union(Lista<Integer> lista1, Lista<Integer> lista2) {
-        IteradorLista<Integer> iteradorL1 = lista1.iteradorLista();
         IteradorLista<Integer> iteradorL2 = lista2.iteradorLista();
-        int longiAux= lista1.size();
-        int longiAux2= lista2.size();
-        for(int i = 0; i<longiAux2; i++){
-            if(!lista1.contains(iteradorL2.next())){
+        int longiAux2 = lista2.size();
+        for (int i = 0; i < longiAux2; i++) {
+            if (!lista1.contains(iteradorL2.next())) {
                 iteradorL2.previous();
                 lista1.add(iteradorL2.next());
             }
@@ -49,8 +60,8 @@ public class Practica1 {
         for (int i = 0; i <= 5; i++) {
             primera.add(i);
         }
+
         String test = "0 -> 1 -> 2 -> 3 -> 4 -> 5";
-        // System.out.println(primera.toString());
         if (!primera.toString().equals(test)) {
             System.out.println("1 El toString no funciona!");
         }
@@ -78,6 +89,7 @@ public class Practica1 {
         if (!primera.toString().equals(segunda.toString())) {
             System.out.println("2 El reverse no funciona!");
         }
+
         // Tests Append
         primera = new Lista<Integer>();
         segunda = new Lista<Integer>();
@@ -95,17 +107,15 @@ public class Practica1 {
         }
 
         // Tests IndexOf
-        
-          if (primera.indexOf(0) != 0) {
-          System.out.println("1 El IndexOf no funciona!");
-          }
-          if (primera.indexOf(1) != 1) {
-          System.out.println("2 El IndexOf no funciona!");
-          }
-          if (primera.indexOf(10) != 10) {
-          System.out.println("3 El IndexOf no funciona!");
-          }
-         
+        if (primera.indexOf(0) != 0) {
+            System.out.println("1 El IndexOf no funciona!");
+        }
+        if (primera.indexOf(1) != 1) {
+            System.out.println("2 El IndexOf no funciona!");
+        }
+        if (primera.indexOf(10) != 10) {
+            System.out.println("3 El IndexOf no funciona!");
+        }
 
         // Tests Insert
         primera = new Lista<Integer>();
@@ -186,23 +196,6 @@ public class Practica1 {
             System.out.println("1 La union no funciona!");
         }
 
- 
-        primera = new Lista<Integer>();
-        segunda = new Lista <Integer>();
-        for(int i = 0; i<10; i++){
-            primera.add(i);
-            segunda.add(i);
-        }
-        segunda.add(100);
-        //primera.add(10);
-        //primera.add(20);
-        System.out.println("Primera "+primera);
-        System.out.println("Segunda "+segunda);
-        Union(primera, segunda);
-        System.out.println("Resultado "+primera);
-        //primera.eliminarRepetidos();
-        //System.out.println("Resultado 2 "+primera);
-        /*
         // Tests interseccion
         primera = new Lista<Integer>();
         segunda = new Lista<Integer>();
@@ -215,8 +208,7 @@ public class Practica1 {
 
         if (!(primera.contains(2) && primera.size() == 1)) {
             System.out.println("1 La intersección no funciona!");
-        }*/
-
+        }
     }
 
 }

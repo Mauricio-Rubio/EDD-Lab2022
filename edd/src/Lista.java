@@ -287,11 +287,20 @@ public class Lista<T> implements Collection<T> {
     /**
      * Metodo que invierte el orden de la lista .
      * 
+     * Primero comprobamos que la longitud sea mayor a 1, luego
+     * vamos a recorrer la lista mediante un for con el iterador
+     * empezando desde atrás, estos elementos del iterador se
+     * agregarán a la misma lista desde la que es llamado el método
+     * (this), el tiempo de ejecución es n, dado que el bucle for se
+     * va a ejecutar en función de la lista, es decir, de n. Por último
+     * vamos a eliminar los elementos que ya existían en la lista 
+     * para que únicamente estén los que metimos en reversa, esto 
+     * lo hacemos con un bucle for y un iterador
      */
     public void reverse() {
         Iterador iterador = new Iterador();
         iterador.end();
-        if (longi != 0 && longi != 1) {
+        if (longi > 1) {
             for (int i = 0; i < this.longi; i++) {
                 if (iterador.hasPrevious())
                     this.add(iterador.previous());
@@ -307,6 +316,13 @@ public class Lista<T> implements Collection<T> {
     /**
      * Regresa una representación en cadena de la coleccion.
      * 
+     * Si la longitud de la lista es menor o igual a 0, no 
+     * hacemos nada, en otro caso, con un bucle se va a ir 
+     * agregando el valor de cada nodo mediante el iterador
+     * a una variable string, que posteriormente será devuelto.
+     * Para quitar el último "->" de la lista, se hace uso de un 
+     * substring al string que estaremos regresando
+     * 
      * @return una representación en cadena de la coleccion.
      *         a -> b -> c -> d
      */
@@ -315,7 +331,7 @@ public class Lista<T> implements Collection<T> {
         String elements = "";
         Iterador iterador = new Iterador();
         int i = 0;
-        if (this.longi == 0) {
+        if (this.longi <= 0) {
             return "";
         } else {
             while (i < this.longi) {
@@ -333,6 +349,13 @@ public class Lista<T> implements Collection<T> {
     /**
      * Junta dos listas siempre y cuando sean del mismo tipo.
      * 
+     * @param lista         Lista que se quiere pegar con 
+     *                      la lista desde donde es llamado 
+     *                      el método
+     * Si las listas son iguales, mientras que el contador iniciando
+     * en 0 sea menor que la longitud de la lista, vamos a ir agergando
+     * elementos a la lista this por medio del iterador de la lista que
+     * pasa por parámetro
      */
     public void append(Lista<T> lista) {
         Iterator<T> iterador = lista.iterator();
@@ -376,6 +399,15 @@ public class Lista<T> implements Collection<T> {
      * de mandar llamar el método, el elemento tendrá el índice que se
      * especifica en la lista.
      * 
+     * Si i es menor que 0, será agregada por medio de insert, si es mayor
+     * que la longitud de nuestra lista será agregada con el método add, en el
+     * otro caso, recorreremos la lista n+1 veces, cuando el iterador del bucle
+     * for sea igual al inidice i pasado por parámetro (cuando nuestro ciclo esta
+     * a la par de donde queremos insertar el elemento) agregamos el elemento deseado,
+     * posteriormente agregamos el resto de los elementos que quedaban. Por 
+     * último borramos todos lo elementos que originalmente tenía la lista, puesto
+     * que son los que contenía la lista originalmente y no nos interesan
+     * 
      * @param i        el índice dónde insertar el elemento. Si es menor que 0 el
      *                 elemento se agrega al inicio, y si es mayor o igual que el
      *                 número
@@ -407,11 +439,26 @@ public class Lista<T> implements Collection<T> {
                     this.delete(iterador.next());
             }
         }
-        // this.longi++;
-        // return;
     }
 
-    // Tu comentario
+    /** Mezclar de forma alternada dos listas
+     *
+     * Tenemos 3 casos posibles; cuando las listas tienen el mismo tamaño resulta
+     * sencillo sólamente recorrer con un bucle para cada lista y agregar a la par
+     * un elemento de una lista con el de otra mediante un bucle for. Cuando la lista
+     * this es más grande que la lista pasada por parámetro, hacemos un for que se va 
+     * a ejecutar n veces en función de la lista (de la lista menor) y haremos los mismo
+     * que arriba, agregar los elementos mediante un for de forma alternada, posteriormente
+     * agregaremos aquellos elementos de this que harán falta y que ya no irán alternados.
+     * De manera análoga hacemos lo mismo pero cuando la lista (pasada por parámetro)
+     * es más grande que la lista this.
+     * 
+     * Al final, en cada uno de los casos necesitamos eliminar los elementos que ya
+     * estaban en la lista, esto varía según el caso, aunque la forma en que borramos 
+     * estos elementos es análoga en los 3 casos.
+     *  
+     * @param lista                 La lista con la que queremos hacer la mezcla
+     */
     public void mezclaAlternada(Lista<T> lista) {
         // append(lista);
         Iterator<T> iteradorLista = lista.iterator();
@@ -434,7 +481,7 @@ public class Lista<T> implements Collection<T> {
                 }
             }
 
-        } 
+        }
         // this es mas grande que lista
 
         else if (this.size() > lista.size()) {
@@ -459,14 +506,14 @@ public class Lista<T> implements Collection<T> {
         }
         // lista es más grande que this
 
-        else{
+        else {
             for (int i = 0; i < longiAux; i++) {
                 if (iteradorLista.hasNext() && iteradorThis.hasNext()) {
                     this.add(iteradorThis.next());
                     this.add(iteradorLista.next());
                 }
             }
-            for (int i = 0; i < lista.size() - longiAux ; i++) {
+            for (int i = 0; i < lista.size() - longiAux; i++) {
                 if (iteradorLista.hasNext()) {
                     this.add(iteradorLista.next());
                 }
@@ -479,22 +526,6 @@ public class Lista<T> implements Collection<T> {
             }
         }
     }
-
-    protected void eliminarRepetidos(){
-        Nodo aux = this.getCabeza();
-        System.out.println("Aux "+aux.elemento);
-        Iterador iterador = new Iterador();
-        iterador.next();
-        while(iterador.hasNext()){
-            if(iterador.next()==aux.elemento){
-                this.delete(aux.elemento);
-                iterador.start();
-            }else{
-                System.out.println("No paso la condicion");
-            }
-        }
-    }
-
     /**
      * Regresa un iterador para recorrer la lista en una dirección.
      * 
