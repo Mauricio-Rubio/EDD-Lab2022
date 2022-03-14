@@ -52,7 +52,7 @@ public class Practica1 {
      * nm <= 2nm -----> n^2+nm <= n^2 +2nm para todo n,m>=1
      *Por lo anterior, el tiempo sigue pertenenciendo a O(n*m)
      *
-     *EN cuanto a espacio, utilizamos una lista auxiliar a la que le agregamos los elementos de la intersección que, como mencionamos, a lo mucho son n elementos (contando repetidos); por lo cual usamos un espacio de O(n).
+     *EN cuanto a espacio, ademas de algunas variables de tipo entero y un iterador (que ocupan espacio O(1)), utilizamos una lista auxiliar a la que le agregamos los elementos de la intersección que, como mencionamos, a lo mucho son n elementos (contando repetidos); por lo cual usamos un espacio de O(n).
      *
      *Como se trabaja agregando los elementos de "lista" a "listAux", si tenemos el caso donde m>n, no es relevante, pues el espacio utilizado será el de n, que al ser menor, sigue perteneciendo a O(m); así, se cumple que:
      *
