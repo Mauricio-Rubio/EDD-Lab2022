@@ -382,11 +382,45 @@ public class Lista<T> implements Collection<T> {
      * @param elemento elemento del cual queremos conocer la posición.
      * @return entero con la posicion del elemento
      * @throws IllegalArgumentException si <code>elemento</code> es
-     *                                  <code>null</code>.
+     *                                       <code>null</code>.
+     * @throws NoSuchElementException si lista.contains(elemento)==false
+     * @throws NoSuchElementException si lista.isEmpty(elemento)==true
      */
     public int indexOf(T elemento) {
-        // Tu codigo aqui
-        return 0;
+        int cont=0;
+         if(isEmpty()){
+        throw new IllegalArgumentException("La lista es vacía y no tiene ningún elemento");
+        }
+	 if (elemento == null) {
+            throw new IllegalArgumentException("El elemento es null");
+        }
+        
+        if(!contains(elemento)){
+        throw new NoSuchElementException("El elemento no se encuentra en la lista");
+        }
+        
+        
+        
+        Nodo nuevo = new Nodo(elemento);
+       
+       // if (cabeza == null) {
+             //throw new IllegalArgumentException("La lista es vacía y no tiene ningún elemento");
+        
+
+	     Nodo n = cabeza;
+        while (n != null) {
+            if (elemento.equals(n.elemento)) {
+		
+                break;
+            }
+            n = n.siguiente;
+	    cont++;
+        }
+	 
+	
+	
+	
+        return cont;
 
     }
 
@@ -543,4 +577,5 @@ public class Lista<T> implements Collection<T> {
     public IteradorLista<T> iteradorLista() {
         return new Iterador();
     }
+   
 }
