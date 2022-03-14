@@ -1,14 +1,7 @@
-Nombres ->
-        ->
+Author -> Alcántara Estrada Kevin Isaac 319073799
+Author -> Rubio Haro Mauricio 319256970
 
-compilar -> javac -d . src/*.java
+Compilar -> javac -d . src/*.java 
 Ejecutar -> java Clases.Practica1
 
-
-Para crear un iterador en una direccion usa
-Iterator<Integer> iter = lista.iterator();
-Ejemplo -> System.out.println(iter.next());
-
-Para crear un iterador en ambas direcciones direcciones usa
-IteradorLista<Integer> iter = lista.iteratorLista();
-Ejemplo -> System.out.println(iter.next());
+Proyecto en github -> https://github.com/Mauricio-Rubio/EDD-Lab2022

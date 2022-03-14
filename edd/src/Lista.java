@@ -1,3 +1,8 @@
+/** Práctica 1.- Estructuras de datos
+ * @author Alcántara Estrada Kevin Isaac
+ * @author Rubio Haro Mauricio
+ */
+
 package Clases;
 
 import java.util.Iterator;

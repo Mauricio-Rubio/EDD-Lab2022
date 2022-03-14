@@ -312,7 +312,7 @@ public class Practica1 {
         segunda.add(9);
         segunda.add(10);
 
-        // tercera = AgregaOrdenado(primera,9);
+        tercera = AgregaOrdenado(primera,9);
         if (!tercera.toString().equals(segunda.toString())) {
             System.out.println("1 el agregaOrdenado no funciona!");
         }
