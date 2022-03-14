@@ -1,3 +1,8 @@
+/** Práctica 1.- Estructuras de datos
+ * @author Alcántara Estrada Kevin Isaac
+ * @author Rubio Haro Mauricio
+ */
+
 package Clases;
 
 import java.util.Iterator;
@@ -191,7 +196,6 @@ public class Practica1 {
             primera.add(i);
         }
 
-        
         String test = "0 -> 1 -> 2 -> 3 -> 4 -> 5";
         if (!primera.toString().equals(test)) {
             System.out.println("1 El toString no funciona!");
@@ -200,7 +204,7 @@ public class Practica1 {
         if (!primera.toString().equals("")) {
             System.out.println("2 El toString no funciona!");
         }
-            
+
         // Tests Reverse
         primera = new Lista<Integer>();
         segunda = new Lista<Integer>();
@@ -209,10 +213,10 @@ public class Practica1 {
             primera.add(i);
             segunda.agregaInicio(i);
         }
-      
+
         primera.reverse();
         if (!primera.toString().equals(segunda.toString())) {
-            System.out.println("1 El reverse no funciona!");    
+            System.out.println("1 El reverse no funciona!");
         }
         primera = new Lista<Integer>();
         segunda = new Lista<Integer>();
@@ -233,7 +237,6 @@ public class Practica1 {
         }
         primera.append(primera.clone());
 
-        
         if (!primera.toString().equals(segunda.toString())) {
             System.out.println("1 El Append no funciona!");
         }
@@ -254,7 +257,7 @@ public class Practica1 {
         segunda = new Lista<Integer>();
         for (int i = 0; i <= 10; i++) {
             primera.add(i);
-            
+
         }
         for (int i = 0; i <= 4; i++) {
             segunda.add(i);
@@ -277,7 +280,7 @@ public class Practica1 {
         for (int i = 0; i <= 10; i++) {
             if (i % 2 == 0) {
                 primera.add(i);
-            }   
+            }
         }
         primera.add(11);
         for (int i = 0; i <= 10; i++) {
@@ -287,17 +290,15 @@ public class Practica1 {
 
         }
         for (int i = 0; i <= 11; i++) {
-            
-                tercera.add(i);
+
+            tercera.add(i);
 
         }
-
 
         primera.mezclaAlternada(segunda);
         if (!primera.toString().equals(tercera.toString())) {
             System.out.println("1 la mezclaAlternada no funciona!");
         }
-
 
         // Tests Agrega Ordenado
         primera = new Lista<Integer>();
@@ -310,13 +311,12 @@ public class Practica1 {
         }
         segunda.add(9);
         segunda.add(10);
-        
-        
-        //tercera = AgregaOrdenado(primera,9);
+
+        // tercera = AgregaOrdenado(primera,9);
         if (!tercera.toString().equals(segunda.toString())) {
             System.out.println("1 el agregaOrdenado no funciona!");
         }
-        
+
         // Tests Union
         primera = new Lista<Integer>();
         segunda = new Lista<Integer>();
@@ -330,7 +330,7 @@ public class Practica1 {
         if (!(primera.contains(1) && primera.contains(2) && primera.contains(3) && primera.size() == 3)) {
             System.out.println("1 La union no funciona!");
         }
-        
+
         // Tests interseccion
         primera = new Lista<Integer>();
         segunda = new Lista<Integer>();
