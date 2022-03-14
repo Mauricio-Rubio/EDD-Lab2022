@@ -6,10 +6,8 @@
 package Clases;
 
 import java.util.Iterator;
-import java.util.List;
-import java.util.Scanner;
 
-import javax.sound.sampled.SourceDataLine;
+
 
 import Clases.IteradorLista;
 
